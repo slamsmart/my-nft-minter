@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { abi } from "./WIZZCAMP_ABI";
 import axios from "axios";
@@ -7,12 +7,13 @@ const CONTRACT_ADDRESS = "0x7648e0877AB3bcc71bA26797C993A409D404D264";
 const PINATA_API_KEY = "dd54fb6e0639abca768a";
 const PINATA_SECRET_API_KEY = "18b87e343a0586d2f7cdce3be7493df1a4c87565fb76dfb433c73828add22d96";
 
-export default function SlamCampMinter() {
+export default function NFTMinter() {
   const [wallet, setWallet] = useState("");
   const [file, setFile] = useState(null);
   const [nftName, setNftName] = useState("");
   const [creatorName, setCreatorName] = useState("");
   const [status, setStatus] = useState("");
+  const [mintedCount, setMintedCount] = useState(0);
 
   const connectWallet = async () => {
     if (!window.ethereum) return alert("Install MetaMask dulu.");
@@ -62,6 +63,7 @@ export default function SlamCampMinter() {
       await new Promise(resolve => setTimeout(resolve, 2000));
       await tx.wait();
       setStatus("✅ NFT Successfully Created!");
+      setMintedCount(prev => prev + 1);
     } catch (error) {
       console.error(error);
       setStatus("❌ mint NFT Failed. Check the API key and network.");
@@ -81,10 +83,10 @@ export default function SlamCampMinter() {
 
       <div className="relative z-10 rounded-xl shadow-xl p-8 max-w-lg w-full text-center bg-black/60 backdrop-blur-md">
         <div className="flex justify-center items-center gap-4 mb-4">
-          <img src="/logo-wizz.png" alt="Wizz Logo" className="h-12" />
+          <img src="/logo-wizz.png" alt="Wizz Logo" className="h-14" />
           <div>
-            <h1 className="text-4xl font-bold text-white">🔥 NFT Minter 🔥</h1>
-            <h2 className="text-3xl font-bold text-white">"Slamsmart Camp"</h2>
+            <h1 className="text-3xl font-bold text-white">🔥 NFT Minter 🔥</h1>
+            <h2 className="text-xl font-semibold text-white">Built on Camp</h2>
           </div>
           <img src="/logo-camp.png" alt="Camp Logo" className="h-12" />
         </div>
@@ -116,7 +118,7 @@ export default function SlamCampMinter() {
         <div className="mb-4 w-full">
           <input
             type="file"
-            className="w-full text-black file:text-black"
+            className="w-full text-black file:text-black file:cursor-pointer file:bg-white"
             onChange={(e) => setFile(e.target.files[0])}
           />
         </div>
@@ -129,7 +131,17 @@ export default function SlamCampMinter() {
         </button>
 
         {status && <p className="mt-4 text-sm font-medium text-white">{status}</p>}
+
+        <p className="mt-4 text-white text-sm">Total Minted NFTs: {mintedCount}</p>
+
+        <p className="text-orange-300 text-sm mt-2">
+          Need Faucet? <a href="https://faucet.campnetwork.xyz/" target="_blank" rel="noopener noreferrer" className="underline">Claim here</a>
+        </p>
       </div>
+
+      <footer className="mt-6 text-white text-xs relative z-10">
+        © 2025 by slamsmart
+      </footer>
     </div>
   );
 }
