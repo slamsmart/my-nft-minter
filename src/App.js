@@ -143,7 +143,7 @@ export default function NFTMinter() {
         </p>
       </div>
 
-      <footer className="mt-6 text-white text-xs relative z-10">
+      <footer className="mt-6 text-black text-xs relative z-10">
         © 2025 by slamsmart
       </footer>
     </div>
