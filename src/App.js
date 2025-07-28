@@ -22,7 +22,7 @@ export default function NFTMinter() {
   };
 
   const mintNFT = async () => {
-    if (!file || !nftName || !creatorName) return alert("Lengkapi semua isian dulu.");
+    if (!file || !nftName || !creatorName) return alert("Fullfill this Form.");
 
     try {
       setStatus("📤 Uploading image...");
