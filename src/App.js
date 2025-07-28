@@ -60,7 +60,7 @@ export default function NFTMinter() {
 
       const tx = await contract.safeMint(wallet, metadataURI);
       setStatus("⏳ Minting...");
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       await tx.wait();
       setStatus("✅ NFT Successfully Created!");
       setMintedCount(prev => prev + 1);
