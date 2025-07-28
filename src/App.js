@@ -60,7 +60,7 @@ export default function NFTMinter() {
 
       const tx = await contract.safeMint(wallet, metadataURI);
       setStatus("⏳ Minting...");
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 1000)); // ganti delay jadi 1 detik
       await tx.wait();
       setStatus("✅ NFT Successfully Created!");
       setMintedCount(prev => prev + 1);
@@ -83,12 +83,16 @@ export default function NFTMinter() {
 
       <div className="relative z-10 rounded-xl shadow-xl p-8 max-w-lg w-full text-center bg-black/60 backdrop-blur-md">
         <div className="flex justify-center items-center gap-4 mb-4">
-          <img src="/logo-wizz.png" alt="Wizz Logo" className="h-14" />
+          <a href="https://x.com/WizzHQ" target="_blank" rel="noopener noreferrer">
+            <img src="/logo-wizz.png" alt="Wizz Logo" className="h-14" />
+          </a>
           <div>
             <h1 className="text-3xl font-bold text-white">🔥 NFT Minter 🔥</h1>
             <h2 className="text-xl font-semibold text-white">Built on Camp</h2>
           </div>
-          <img src="/logo-camp.png" alt="Camp Logo" className="h-12" />
+          <a href="https://x.com/campnetworkxyz" target="_blank" rel="noopener noreferrer">
+            <img src="/logo-camp.png" alt="Camp Logo" className="h-12" />
+          </a>
         </div>
 
         {!wallet && (
