@@ -105,7 +105,7 @@ export default function NFTMinter() {
 
         <input
           type="text"
-          placeholder="Nama NFT"
+          placeholder="NFT Name"
           className="p-2 mb-2 w-full border border-orange-300 rounded"
           value={nftName}
           onChange={(e) => setNftName(e.target.value)}
@@ -113,7 +113,7 @@ export default function NFTMinter() {
 
         <input
           type="text"
-          placeholder="Nama Creator"
+          placeholder="Creator Name"
           className="p-2 mb-2 w-full border border-orange-300 rounded"
           value={creatorName}
           onChange={(e) => setCreatorName(e.target.value)}
