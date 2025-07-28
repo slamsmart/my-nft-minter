@@ -129,7 +129,7 @@ export default function NFTMinter() {
 
         <button
           onClick={mintNFT}
-          className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded w-full"
+          className="bg-orange-700 hover:bg-orange-800 text-white px-6 py-2 rounded w-full"
         >
           Upload & Mint
         </button>
