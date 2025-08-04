@@ -1,42 +1,67 @@
-# 🏕️ Camp Genesis Minter
+# 🚀 CampGenesis Minter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-A minimal NFT minting DApp for the [Camp Network](https://camp.network), built for the **Camp x Wizz: Builder Bounty**.  
-Users can connect their wallet, mint NFTs using Origin SDK, and view their collection + transaction history in a clean UI.
+A minimalist, full-featured NFT minter for the [Camp Testnet](https://www.campnetwork.io), built with performance and flexibility in mind. Leverages Origin SDK for wallet integration and on-chain minting. Includes real-time gallery and transaction tracking.
 
 ---
 
-## 🚀 Features
+## ✅ Features
 
-- 🔗 Wallet connection via Origin Modal (Camp Network)
-- 🪄 NFT minting form (Name, Creator, Upload trigger)
-- 🖼 NFT Gallery (on-chain NFT fetch via BlockScout API)
-- 📜 Transaction history (paginated)
-- 🌐 Deployed on BaseCamp Testnet
+### 🔥 Full NFT Minting Pipeline
+- Upload image to IPFS via Pinata
+- Dynamically generate metadata
+- Mint NFTs on-chain using smart contract (manual and Origin modal)
+- Real-time minting status feedback
+- Responsive UI with status indicators and loading spinner
+
+### 🛠 Tech Stack
+- 🧩 **Origin SDK** – Wallet connection and NFT minting
+- ⚛️ **React + Vite + Tailwind CSS** – Fast and responsive frontend
+- 🛰 **BlockScout API** – Live transaction feed and NFT gallery integration
+
+### 🖼 NFT Gallery Viewer
+- View all minted NFTs
+- Includes image previews, metadata, and owner info
+- Filter NFTs by wallet address
+
+### 📄 Transaction History
+- List of recent minting transactions
+- Links directly to BlockScout Explorer
+- Displays status: Success, Pending, or Error
+
+### 👀 NFT Preview
+- See a preview of your NFT before minting
+- Displays uploaded image and structured metadata
+- Verifies IPFS CID and JSON structure
 
 ---
 
-## 🧠 NFT Types Explained: Why Some Images Show Up, and Others Don’t
+## 📦 Getting Started
 
-This app interacts with **two types of NFTs** on the Camp Network:
+```bash
+git clone https://github.com/yourusername/campgenesis-minter.git
+cd campgenesis-minter
+npm install
+npm run dev
+```
 
-### 1. IP NFTs (File Upload NFTs — e.g. minted via Omnihub)
-- Minted by uploading a file directly.
-- The file becomes the actual NFT content — no external metadata needed.
-- ✅ These NFTs **display properly** in the gallery because the image is embedded and easily detected.
+> ⚠️ Make sure you are connected to **Camp Testnet** and have some testnet VS tokens in your wallet.
 
-### 2. Metadata-based NFTs (Minted via the in-app form)
-- Minted using the in-app form with **NFT Name** and **Creator Name**.
-- Expected to generate a `tokenURI` pointing to metadata JSON (containing `image`, `name`, etc.).
-- ❌ These NFTs **do not show up** in the gallery — because the current implementation does **not** upload image/metadata to IPFS, nor generate a valid `tokenURI`.
+---
 
-> Even though the form asks for metadata (name/creator), without integrating IPFS storage (e.g., NFT.Storage), the minted NFT lacks proper metadata.
->
-> The IPNFT smart contract used via Origin SDK **requires the app to handle metadata creation/upload** — otherwise the NFT ends up with a missing or invalid `tokenURI`.
+## 📸 Screenshots (Coming Soon)
 
-⚠️ **Planned Improvement:**  
-Add support for full image + metadata upload to IPFS, enabling complete NFT metadata generation for in-app minting.
+---
+
+## 🧪 Notes
+- Compatible with Camp Network smart contracts and Origin SDK modal flow
+- Optimized for fast iteration during hackathons or bounty contests
+
+---
+
+## 📜 License
+
+MIT License
+
 
 ---
 
