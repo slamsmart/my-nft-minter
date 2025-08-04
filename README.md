@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# 🏕️ Camp Genesis Minter
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+A minimal NFT minting DApp for the [Camp Network](https://camp.network), built for the **Camp x Wizz: Builder Bounty**.  
+Users can connect their wallet, mint NFTs using Origin SDK, and view their collection + transaction history in a clean UI.
+
+---
+
+## 🚀 Features
+
+- 🔗 Wallet connection via Origin Modal (Camp Network)
+- 🪄 NFT minting form (Name, Creator, Upload trigger)
+- 🖼 NFT Gallery (on-chain NFT fetch via BlockScout API)
+- 📜 Transaction history (paginated)
+- 🌐 Deployed on BaseCamp Testnet
+
+---
+
+## 🧠 NFT Types Explained: Why Some Images Show Up, and Others Don’t
+
+This app interacts with **two types of NFTs** on the Camp Network:
+
+### 1. IP NFTs (File Upload NFTs — e.g. minted via Omnihub)
+- Minted by uploading a file directly.
+- The file becomes the actual NFT content — no external metadata needed.
+- ✅ These NFTs **display properly** in the gallery because the image is embedded and easily detected.
+
+### 2. Metadata-based NFTs (Minted via the in-app form)
+- Minted using the in-app form with **NFT Name** and **Creator Name**.
+- Expected to generate a `tokenURI` pointing to metadata JSON (containing `image`, `name`, etc.).
+- ❌ These NFTs **do not show up** in the gallery — because the current implementation does **not** upload image/metadata to IPFS, nor generate a valid `tokenURI`.
+
+> Even though the form asks for metadata (name/creator), without integrating IPFS storage (e.g., NFT.Storage), the minted NFT lacks proper metadata.
+>
+> The IPNFT smart contract used via Origin SDK **requires the app to handle metadata creation/upload** — otherwise the NFT ends up with a missing or invalid `tokenURI`.
+
+⚠️ **Planned Improvement:**  
+Add support for full image + metadata upload to IPFS, enabling complete NFT metadata generation for in-app minting.
+
+---
+
+## 📦 Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
-
-Runs the app in the development mode.\
+Runs the app in development mode.  
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in interactive watch mode.
 
 ### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Builds the app for production to the `build` folder.  
+Optimized for best performance. Minified, hashed, and ready for deployment.
 
 ### `npm run eject`
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**  
+Gives full control over Webpack, Babel, and ESLint configs.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📚 Learn More
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Create React App Docs](https://facebook.github.io/create-react-app/docs/getting-started)
+- [React Docs](https://reactjs.org/)
+- [Code Splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [Bundle Size Analysis](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [PWA Guide](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- [Advanced Config](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [Deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [Build Minify Troubleshooting](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
