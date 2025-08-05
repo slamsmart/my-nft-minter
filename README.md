@@ -12,7 +12,6 @@ A minimalist, full-featured NFT minter for the [Camp Testnet](https://www.campne
 - Upload image to IPFS via **Pinata**
 - Auto-generate metadata JSON (name, creator, image CID)
 - Mint NFTs using deployed smart contract on **BaseCAMP Testnet**
-- Choose between **manual mint (ethers.js)** or **Origin Modal flow**
 - Supports **WalletConnect**
 
 ---
