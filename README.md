@@ -2,36 +2,76 @@
 
 A minimalist, full-featured NFT minter for the [Camp Testnet](https://www.campnetwork.io), built with performance and flexibility in mind. Leverages Origin SDK for wallet integration and on-chain minting. Includes real-time gallery and transaction tracking.
 
+> **This is not a demo. This is real on-chain NFT minting.**
+
 ---
 
-## ✅ Features
+## ✅ Core Features
 
-### 🔥 Full NFT Minting Pipeline
-- Upload image to IPFS via Pinata
-- Dynamically generate metadata
-- Mint NFTs on-chain using smart contract (manual and Origin modal)
-- Real-time minting status feedback
-- Responsive UI with status indicators and loading spinner
+### 🔥 Full On-Chain Minting Pipeline
+- Upload image to IPFS via **Pinata**
+- Auto-generate metadata JSON (name, creator, image CID)
+- Mint NFTs using deployed smart contract on **BaseCAMP Testnet**
+- Choose between **manual mint (ethers.js)** or **Origin Modal flow**
+- Supports **WalletConnect**
 
-### 🛠 Tech Stack
-- 🧩 **Origin SDK** – Wallet connection and NFT minting
-- ⚛️ **React + Vite + Tailwind CSS** – Fast and responsive frontend
-- 🛰 **BlockScout API** – Live transaction feed and NFT gallery integration
+---
 
-### 🖼 NFT Gallery Viewer
-- View all minted NFTs
-- Includes image previews, metadata, and owner info
-- Filter NFTs by wallet address
+### ⚡ Real-Time UX Feedback
+- Visual minting **spinner**
+- Status indicators: `Minting`, `Success`, `Failed`
+- Disable buttons during TX → no double mint
+- **“Mint Another NFT”** = loop minting without reload
 
-### 📄 Transaction History
-- List of recent minting transactions
-- Links directly to BlockScout Explorer
-- Displays status: Success, Pending, or Error
+---
 
-### 👀 NFT Preview
-- See a preview of your NFT before minting
-- Displays uploaded image and structured metadata
-- Verifies IPFS CID and JSON structure
+### 👁 NFT Preview Before Mint
+- Show uploaded image before committing
+- Display structured JSON metadata (name, image, description)
+- Verifies IPFS CID is valid before mint
+
+---
+
+### ✅ Mint Result Display
+- Show NFT image + metadata after minting
+- Show TX hash, contract address, and **BlockScout link**
+- Clear UI status: green for success, red for failure
+
+---
+
+## 🖼 NFT Gallery (via [Camp Collector](https://camp-collector.vercel.app/))
+- View all NFTs minted by wallet
+- Show image, name, metadata, and token ID
+- Filter by wallet address
+
+---
+
+## 📜 Transaction Tracker
+- View latest minting TXs
+- Fetches live from BlockScout explorer
+- Clickable TX links with real status
+
+---
+
+## 💡 Why CampGenesis Wins
+
+- ✅ Full IPFS + Smart Contract + Wallet integration
+- ✅ Uses **WizzCamp** contract on Camp testnet — real minting
+- ✅ Origin SDK & WalletConnect ready
+- ✅ Works on **mobile & desktop**
+- ✅ Zero gimmicks — it actually mints NFTs on-chain
+
+---
+
+## 🛠 Tech Stack
+
+| Layer         | Tech                            |
+|---------------|----------------------------------|
+| Frontend      | React + Vite + Tailwind CSS     |
+| Blockchain    | Camp Network (BaseCAMP testnet) |
+| Wallet        | Origin SDK + ethers.js          |
+| Storage       | Pinata (IPFS image & metadata)  |
+| Explorer      | BlockScout API                  |
 
 ---
 
@@ -44,17 +84,22 @@ npm install
 npm run dev
 ```
 
-> ⚠️ Make sure you are connected to **Camp Testnet** and have some testnet VS tokens in your wallet.
+> ⚠️ Ensure your wallet is connected to **Camp Testnet** and funded with testnet VS tokens.
+
+---
+
+## 📵 Live Demo
+
+👉 [https://camp-genesis-minter.vercel.app](https://camp-genesis-minter.vercel.app)
 
 ---
 
 ## 📸 Screenshots (Coming Soon)
-
----
-
-## 🧪 Notes
-- Compatible with Camp Network smart contracts and Origin SDK modal flow
-- Optimized for fast iteration during hackathons or bounty contests
+- Minting UI with spinner
+- NFT preview card
+- Result page with metadata + image
+- BlockScout TX proof
+- Live gallery and wallet filtering
 
 ---
 
@@ -62,34 +107,24 @@ npm run dev
 
 MIT License
 
+---
+
+## 🔧 Dev Scripts
+
+| Command         | Description                          |
+|-----------------|--------------------------------------|
+| `npm start`     | Start dev server                     |
+| `npm run build` | Build for production                 |
+| `npm test`      | Run tests (TBD)                      |
+| `npm run eject` | Unwrap Vite/Webpack config (careful) |
 
 ---
 
-## 📦 Available Scripts
+## 🤝 Contributing
 
-In the project directory, you can run:
+Pull requests are welcome. This is an open project — fork it, build on it, use it for your Camp-based NFT dApps or testnet showcases.
 
-### `npm start`
-Runs the app in development mode.  
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `npm test`
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-Builds the app for production to the `build` folder.  
-Optimized for best performance. Minified, hashed, and ready for deployment.
-
-### `npm run eject`
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**  
-Gives full control over Webpack, Babel, and ESLint configs.
-
----
-
-## 📚 Learn More
-
-- [Create React App Docs](https://facebook.github.io/create-react-app/docs/getting-started)
-- [React Docs](https://reactjs.org/)
 - [Code Splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 - [Bundle Size Analysis](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 - [PWA Guide](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
